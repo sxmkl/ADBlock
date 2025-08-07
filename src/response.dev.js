@@ -261,6 +261,16 @@ Console.info(`FORMAT: ${FORMAT}`);
 									Console.warn("用户设置搜索页热搜内容不去除");
 									break;
 							}
+							switch (Settings?.Search?.Recommend) {
+								case true:
+								default:
+									Console.log("✅ 搜索发现内容去除");
+									body.data = body.data.filter(i => !(i.type === "recommend"));
+									break;
+								case false:
+									Console.warn("用户设置搜索发现内容不去除");
+									break;
+							}
 							break;
 					}
 					break;
